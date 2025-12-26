@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accès privé – Formation Mtrade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+    }
+
+    header {
+      background: #1e2a38;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .access-box {
+      max-width: 400px;
+      margin: 60px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .access-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .access-box button {
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Accès privé – Formation Mtrade</h1>
+  <p>Veuillez entrer votre clé d’accès</p>
+</header>
+
+<div class="access-box">
+  <input type="text" id="accessKey" placeholder="Ex : GG-B003">
+  <button onclick="checkAccess()" >Accéder à la formation</button>
+  <p id="error" class="error"></p>
+</div>
+
+<script>
+  // 🔐 LISTE DES CLÉS D’ACCÈS VALIDES
+  const accessKeys = [
+    "GG-B003",
+    "TH-B003"
+  ];
+
+  function checkAccess() {
+    const key = document.getElementById("accessKey").value.trim();
+
+    if (accessKeys.includes(key)) {
+      // accès autorisé
+      window.location.href = "wel.html";
+    } else {
+      document.getElementById("error").innerText =
+        "Clé invalide. Accès refusé.";
+    }
+  }
+</script>
+
+</body>
+</html>
